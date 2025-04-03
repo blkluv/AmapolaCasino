@@ -1,0 +1,23 @@
+[
+  {
+    "image": "banner1.jpg",
+    "title": "Welcome to Our Site",
+    "subtitle": "Discover Amazing Deals",
+    "link": "https://example.com/join",
+    "button_text": "Join Now"
+  },
+  {
+    "image": "banner2.jpg",
+    "title": "Limited Time Offer",
+    "subtitle": "Get 50% Off Your First Purchase",
+    "link": "https://example.com/offer",
+    "button_text": "Shop Now"
+  },
+  {
+    "image": "banner3.jpg",
+    "title": "Banner 3",
+    "subtitle": "Get 50% Off Your First Purchase",
+    "link": "https://example.com/offer",
+    "button_text": "Shop Now"
+  }
+]
