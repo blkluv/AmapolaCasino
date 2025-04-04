@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 loop: true,
                 pagination: { el: ".swiper-pagination", clickable: true },
                 navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-                autoplay: { delay: 5000 }
+                autoplay: { delay: 7500 }
             });
         })
         .catch(error => console.error("Error loading banners:", error));
