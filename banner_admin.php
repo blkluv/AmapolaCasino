@@ -14,21 +14,26 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   <title>Banner Manager</title>
   <style>
     body { font-family: Arial; padding: 20px; background: #f8f8f8; }
-    h2 { color: #006847; }
+    h2 { color: #006847; text-align: center;}
+    a {text-decoration: none;}
     form, li { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); margin-bottom: 10px; }
     input { margin: 5px 0; padding: 8px; width: 100%; box-sizing: border-box; }
-    button { background: #006847; color: #fff; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+    button { background: #006847; color: #fff; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; font-size: 0.75em; padding: 10px 20px;}
     button:hover { background: #004d34; }
-    li button { background: #ccc; margin-left: 10px; }
+    li button { background: #ccc; margin-left: 10px;}
+    .btn {position: absolute; top: 10px; right: 10px; color: white; background: #333; padding: 10px 20px; border-radius: 4px; font-size: 0.75em}
+    .btn:hover {background-color: #000;}
+    #bannersContainer {max-width: 800px; margin: 0 auto;}
+    #addBanner {display: block; margin: 0 auto;}
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body onload="promptPassword()">
-<a href="logout.php">Logout</a>
 
 <h2>Banner Manager</h2>
-<div id="bannersContainer"></div>
 <button id="addBanner">+ Add New Banner</button>
+<div id="bannersContainer"></div>
+<a href="logout.php" class="btn">Logout</a>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("bannersContainer");
