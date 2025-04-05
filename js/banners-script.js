@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     fetch("banners.json")
         .then(response => response.json())
-        .then(banners => {
+        .then(data => {
             const bannerWrapper = document.getElementById("bannerWrapper");
+
+            const banners = data.banners;
 
             banners.forEach(banner => {
                 const slide = document.createElement("div");

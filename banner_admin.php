@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: login.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +5,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Banner Manager</title>
   <style>
-    body { font-family: Arial; padding: 20px; background: #f8f8f8; }
+    body {font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0;}
     h2 { color: #006847; text-align: center;}
     a {text-decoration: none;}
     form, li { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); margin-bottom: 10px; }
@@ -21,29 +13,47 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     button { background: #006847; color: #fff; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; font-size: 0.75em; padding: 10px 20px;}
     button:hover { background: #004d34; }
     li button { background: #ccc; margin-left: 10px;}
-    .btn {position: absolute; top: 10px; right: 10px; color: white; background: #333; padding: 10px 20px; border-radius: 4px; font-size: 0.75em}
+    .btn {position: absolute; top: 0; right: 0; color: white; background: #666; padding: 10px 20px;}
     .btn:hover {background-color: #000;}
-    #bannersContainer {max-width: 800px; margin: 0 auto;}
+    #bannersContainer {max-width: 800px; margin: 20px auto; background-color: #fff; padding: 40px; border-radius: 8px; padding: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
     #addBanner {display: block; margin: 0 auto;}
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
-<body onload="promptPassword()">
+<body>
 
 <h2>Banner Manager</h2>
 <button id="addBanner">+ Add New Banner</button>
 <div id="bannersContainer"></div>
 <a href="logout.php" class="btn">Logout</a>
 <script>
+  const csrfToken = "66c0ceb2ad4d959d609d3f27e2e3d44e7a2b82f269a77ffb6b76c560b4146be6";
+
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("bannersContainer");
 
     fetch('banners.json')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(data => {
-        data.forEach((banner, index) => {
-          container.appendChild(createBannerForm(banner, index));
-        });
+        // Access the banners array from the JSON object
+        const banners = data.banners;
+
+        // Ensure the data is an array
+        if (Array.isArray(banners)) {
+          banners.forEach((banner, index) => {
+            container.appendChild(createBannerForm(banner, index));
+          });
+        } else {
+          throw new Error('Data.banners is not an array');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching or parsing the JSON:', error);
+        alert('Error loading banners. Please try again later.');
       });
 
     function createBannerForm(banner, index) {
@@ -62,51 +72,44 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       return div;
     }
 
-    window.saveBanner = function(index) {
+    function collectBanners() {
       const forms = document.querySelectorAll(".banner-form");
-      const updatedBanners = Array.from(forms).map(form => ({
+      return Array.from(forms).map(form => ({
         image: form.querySelector(".image").value,
         title: form.querySelector(".title").value,
         subtitle: form.querySelector(".subtitle").value,
         link: form.querySelector(".link").value,
         button_text: form.querySelector(".button_text").value
       }));
+    }
 
+    window.saveBanner = function(index) {
+      const updatedBanners = collectBanners();
       fetch("save-banners.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedBanners)
+        body: JSON.stringify({ csrf_token: csrfToken, banners: updatedBanners })
       })
       .then(res => res.json())
       .then(response => {
         if (response.success) alert("Banner saved!");
-        else alert("Failed to save");
+        else alert("Failed to save: " + response.message);
       });
     };
 
     window.deleteBanner = function(index) {
       if (!confirm("Are you sure you want to delete this banner?")) return;
-
-      const forms = document.querySelectorAll(".banner-form");
-      const updatedBanners = Array.from(forms).map(form => ({
-        image: form.querySelector(".image").value,
-        title: form.querySelector(".title").value,
-        subtitle: form.querySelector(".subtitle").value,
-        link: form.querySelector(".link").value,
-        button_text: form.querySelector(".button_text").value
-      }));
-
+      const updatedBanners = collectBanners();
       updatedBanners.splice(index, 1);
-
       fetch("save-banners.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedBanners)
+        body: JSON.stringify({ csrf_token: csrfToken, banners: updatedBanners })
       })
       .then(res => res.json())
       .then(response => {
         if (response.success) location.reload();
-        else alert("Failed to delete");
+        else alert("Failed to delete: " + response.message);
       });
     };
 
