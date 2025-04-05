@@ -1,19 +1,15 @@
 <?php
-session_start(); // Start the session
+session_start(); 
 
-// Include the configuration file where the hashed password is stored
 include('config.php');
 
-// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Validate login: compare the entered password with the stored hashed password
     if ($username == $admin_username && password_verify($password, $admin_password_hash)) {
-        // Store the session variable to indicate the user is logged in
         $_SESSION['logged_in'] = true;
-        header('Location: banner_admin.php'); // Redirect to the admin page
+        header('Location: banner_admin.php'); 
         exit;
     } else {
         $error_message = "Invalid username or password!";
