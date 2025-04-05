@@ -26,116 +26,97 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 <body onload="promptPassword()">
 <a href="logout.php">Logout</a>
 
-  <h2>Banner Manager</h2>
+<h2>Banner Manager</h2>
+<div id="bannersContainer"></div>
+<button id="addBanner">+ Add New Banner</button>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("bannersContainer");
 
-  <form id="bannerForm">
-    <input type="text" id="image" placeholder="Image URL" required />
-    <input type="text" id="title" placeholder="Title" required />
-    <input type="text" id="subtitle" placeholder="Subtitle" required />
-    <input type="text" id="link" placeholder="Link" required />
-    <input type="text" id="button_text" placeholder="Button Text" required />
-    <button type="submit">Add Banner</button>
-  </form>
-
-  <ul id="bannerList"></ul>
-
-  <script>
-    const PASSWORD_HASH = "5f4dcc3b5aa765d61d8327deb882cf99"; // "password"
-    function hash(str) { return CryptoJS.MD5(str).toString(); }
-
-    function promptPassword() {
-      const input = prompt("Enter password:");
-      if (hash(input) !== PASSWORD_HASH) {
-        alert("Access denied.");
-        document.body.innerHTML = "";
-      }
-    }
-
-    let banners = [];
-
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch("banners.json")
-        .then(response => response.json())
-        .then(data => {
-          banners = data;
-          renderBannerList();
+    fetch('banners.json')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach((banner, index) => {
+          container.appendChild(createBannerForm(banner, index));
         });
-
-      document.getElementById("bannerForm").addEventListener("submit", defaultSubmit);
-    });
-
-    function defaultSubmit(e) {
-      e.preventDefault();
-      const newBanner = {
-        image: image.value,
-        title: title.value,
-        subtitle: subtitle.value,
-        link: link.value,
-        button_text: button_text.value
-      };
-      banners.push(newBanner);
-      renderBannerList();
-      saveToServer();
-      this.reset();
-    }
-
-    function renderBannerList() {
-      const list = document.getElementById("bannerList");
-      list.innerHTML = "";
-      banners.forEach((b, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <strong>${b.title}</strong> - ${b.subtitle}
-          <button onclick="editBanner(${index})">Edit</button>
-          <button onclick="deleteBanner(${index})">Delete</button>
-        `;
-        list.appendChild(li);
       });
+
+    function createBannerForm(banner, index) {
+      const div = document.createElement('div');
+      div.className = "banner-form";
+      div.innerHTML = `
+        <hr>
+        <label>Image URL: <input type="text" class="image" value="${banner.image}"></label><br>
+        <label>Title: <input type="text" class="title" value="${banner.title}"></label><br>
+        <label>Subtitle: <input type="text" class="subtitle" value="${banner.subtitle}"></label><br>
+        <label>Link: <input type="text" class="link" value="${banner.link}"></label><br>
+        <label>Button Text: <input type="text" class="button_text" value="${banner.button_text}"></label><br>
+        <button onclick="saveBanner(${index})">💾 Save</button>
+        <button onclick="deleteBanner(${index})">🗑 Delete</button>
+      `;
+      return div;
     }
 
-    function editBanner(index) {
-      const b = banners[index];
-      image.value = b.image;
-      title.value = b.title;
-      subtitle.value = b.subtitle;
-      link.value = b.link;
-      button_text.value = b.button_text;
+    window.saveBanner = function(index) {
+      const forms = document.querySelectorAll(".banner-form");
+      const updatedBanners = Array.from(forms).map(form => ({
+        image: form.querySelector(".image").value,
+        title: form.querySelector(".title").value,
+        subtitle: form.querySelector(".subtitle").value,
+        link: form.querySelector(".link").value,
+        button_text: form.querySelector(".button_text").value
+      }));
 
-      document.getElementById("bannerForm").onsubmit = function (e) {
-        e.preventDefault();
-        banners[index] = {
-          image: image.value,
-          title: title.value,
-          subtitle: subtitle.value,
-          link: link.value,
-          button_text: button_text.value
-        };
-        renderBannerList();
-        saveToServer();
-        this.reset();
-        this.onsubmit = defaultSubmit;
-      };
-    }
-
-    function deleteBanner(index) {
-      if (confirm("Are you sure?")) {
-        banners.splice(index, 1);
-        renderBannerList();
-        saveToServer();
-      }
-    }
-
-    function saveToServer() {
       fetch("save-banners.php", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(banners)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedBanners)
       })
-      .then(res => res.ok ? alert("Changes saved!") : alert("Error saving file."))
-      .catch(err => alert("Server error."));
-    }
-  </script>
+      .then(res => res.json())
+      .then(response => {
+        if (response.success) alert("Banner saved!");
+        else alert("Failed to save");
+      });
+    };
+
+    window.deleteBanner = function(index) {
+      if (!confirm("Are you sure you want to delete this banner?")) return;
+
+      const forms = document.querySelectorAll(".banner-form");
+      const updatedBanners = Array.from(forms).map(form => ({
+        image: form.querySelector(".image").value,
+        title: form.querySelector(".title").value,
+        subtitle: form.querySelector(".subtitle").value,
+        link: form.querySelector(".link").value,
+        button_text: form.querySelector(".button_text").value
+      }));
+
+      updatedBanners.splice(index, 1);
+
+      fetch("save-banners.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedBanners)
+      })
+      .then(res => res.json())
+      .then(response => {
+        if (response.success) location.reload();
+        else alert("Failed to delete");
+      });
+    };
+
+    document.getElementById("addBanner").addEventListener("click", () => {
+      const newBanner = {
+        image: "",
+        title: "",
+        subtitle: "",
+        link: "",
+        button_text: ""
+      };
+      container.appendChild(createBannerForm(newBanner));
+    });
+  });
+</script>
+
 </body>
 </html>
