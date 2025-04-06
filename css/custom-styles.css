@@ -4,7 +4,15 @@
 #loginBox input {
     width: 120px;
     margin-right: 10px;
+    padding: 2px 10px;
 }
+#services-section, #contact-section {
+    background-color: #1c040c;
+}
+#about-section, #projects-section {
+    background-color: #111;
+}
+
 @media (max-width: 992px) {
     #loginBox {
         position: absolute;
@@ -28,5 +36,8 @@
     }
     .navbar {
         padding-top: 50px;
+    }
+    .ftco-navbar-light.scrolled.awake {
+        padding-top: 40px;
     }
 }
