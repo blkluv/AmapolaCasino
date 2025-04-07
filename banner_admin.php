@@ -1,8 +1,19 @@
+<?php
+session_start(); // Start the session to access session data, including CSRF token
+
+// Optional: Check if the user is logged in or redirect to the login page
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="csrf-token" content="<?php echo $_SESSION['csrf_token']; ?>" />
   <title>Banner Manager</title>
   <style>
     body {font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0;}
@@ -26,7 +37,7 @@
 <div id="bannersContainer"></div>
 <a href="logout.php" class="btn">Logout</a>
 <script>
-  const csrfToken = "66c0ceb2ad4d959d609d3f27e2e3d44e7a2b82f269a77ffb6b76c560b4146be6";
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("bannersContainer");
@@ -39,10 +50,8 @@
         return res.json();
       })
       .then(data => {
-        // Access the banners array from the JSON object
         const banners = data.banners;
 
-        // Ensure the data is an array
         if (Array.isArray(banners)) {
           banners.forEach((banner, index) => {
             container.appendChild(createBannerForm(banner, index));
@@ -101,6 +110,7 @@
       if (!confirm("Are you sure you want to delete this banner?")) return;
       const updatedBanners = collectBanners();
       updatedBanners.splice(index, 1);
+
       fetch("save-banners.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -108,23 +118,20 @@
       })
       .then(res => res.json())
       .then(response => {
-        if (response.success) location.reload();
-        else alert("Failed to delete: " + response.message);
+        if (response.success) {
+          document.querySelectorAll(".banner-form")[index].remove();
+        } else {
+          alert("Failed to delete: " + response.message);
+        }
       });
     };
 
     document.getElementById("addBanner").addEventListener("click", () => {
-      const newBanner = {
-        image: "",
-        title: "",
-        subtitle: "",
-        link: "",
-        button_text: ""
-      };
-      container.appendChild(createBannerForm(newBanner));
+      const newBanner = { image: "", title: "", subtitle: "", link: "", button_text: "" };
+      const newForm = createBannerForm(newBanner);
+      container.appendChild(newForm);
     });
   });
 </script>
-
 </body>
 </html>

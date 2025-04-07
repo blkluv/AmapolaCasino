@@ -10,13 +10,22 @@ if ($credentials === null) {
 $stored_username = $credentials['username'];
 $stored_password_hash = $credentials['password_hash'];
 
+// If CSRF token doesn't exist in session, generate one
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));  // Generate a random 32-byte token
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate CSRF token
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("Invalid CSRF token.");
+    }
+
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
     if ($username === $stored_username && password_verify($password, $stored_password_hash)) {
         $_SESSION['logged_in'] = true;
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         header('Location: banner_admin.php');
         exit;
     } else {
@@ -80,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     button:hover {
       background-color: #004d34;
     }
-
   </style>
 </head>
 <body>
@@ -91,6 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
 
   <form method="post">
+    <!-- CSRF Token -->
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+
     <input type="text" name="username" placeholder="Username" required><br>
     <input type="password" name="password" placeholder="Password" required><br>
     <button type="submit">Login</button>
