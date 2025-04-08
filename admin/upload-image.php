@@ -28,7 +28,7 @@ if (file_exists($targetPath)) {
 
 if (move_uploaded_file($file['tmp_name'], $targetPath)) {
   // Assuming the file is uploaded to the "images/banners/" folder
-  $webPath = 'images/banners/' . $filename; // Relative path to the image for web access
+  $webPath = '/images/banners/' . $filename; // Relative path to the image for web access
   echo json_encode(['success' => true, 'url' => $webPath]); // Return the correct relative URL
 } else {
   echo json_encode(['success' => false, 'message' => 'Failed to move uploaded file']);
