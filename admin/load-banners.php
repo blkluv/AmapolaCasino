@@ -8,7 +8,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
-$json_path = __DIR__ . '/banners.json';
+$json_path = dirname(__DIR__) . '/banners.json';
 
 if (!file_exists($json_path)) {
     echo json_encode(['status' => 'error', 'message' => 'Banners file not found']);

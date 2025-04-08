@@ -33,8 +33,8 @@ $cleanedBanners = array_map(function ($banner) {
     ];
 }, $input['banners']);
 
-$filePath = __DIR__ . '/banners.json';
-$backupDir = __DIR__ . '/backups';
+$json_path = dirname(__DIR__) . '/banners.json';
+$backupDir = dirname(__DIR__) . '/backups';
 
 // Make sure backups directory exists
 if (!is_dir($backupDir)) {
@@ -42,14 +42,14 @@ if (!is_dir($backupDir)) {
 }
 
 // Create timestamped backup
-if (file_exists($filePath)) {
+if (file_exists($json_path)) {  // Use $json_path here instead of $filePath
     $timestamp = date('Ymd-His');
     $backupPath = $backupDir . "/banners-$timestamp.json";
-    copy($filePath, $backupPath);
+    copy($json_path, $backupPath);  // Use $json_path here as well
 }
 
 // Save new banners
-if (file_put_contents($filePath, json_encode(['banners' => $cleanedBanners], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES))) {
+if (file_put_contents($json_path, json_encode(['banners' => $cleanedBanners], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES))) {
     echo json_encode(['success' => true]);
 } else {
     echo json_encode(['success' => false, 'message' => 'Failed to save file']);

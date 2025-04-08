@@ -9,15 +9,15 @@ function sanitize(str) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Load banners
-    fetch("load-banners.php")
-        .then(response => response.json())
-        .then(data => {
-            if (data.status !== "success") {
-                console.error("Failed to load banners:", data.message);
-                return;
+    // Load banners directly from JSON file
+    fetch("/banners.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch banners.json");
             }
-
+            return response.json();
+        })
+        .then(data => {
             const bannerWrapper = document.getElementById("bannerWrapper");
             const banners = data.banners;
 
@@ -47,17 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error loading banners:", error));
 
-    // Save banners function (called when you save)
+    // Save banners function (only used by admin panel)
     function saveBanners(bannersData) {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Ensure CSRF token is set in meta tag in the page
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
         
-        fetch("save-banners.php", {
+        fetch("/admin/save-banners.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                csrf_token: csrfToken,  // Send CSRF token along with the banners
+                csrf_token: csrfToken,
                 banners: bannersData
             })
         })

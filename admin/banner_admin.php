@@ -50,7 +50,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     const container = document.getElementById("bannersContainer");
 
     // Fetch existing banners and populate the form
-    fetch('banners.json')
+    fetch('../banners.json')
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
@@ -96,15 +96,17 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     function createBannerForm(banner, index) {
       const div = document.createElement('div');
       div.className = "banner-form";
+      const imageUrl = banner.image ? `${banner.image}` : '';
       div.innerHTML = `
         <hr>
-        <label>Image URL: <input type="text" class="image" value="${banner.image}"></label><br>
+        <label>Image URL: <input type="text" class="image" value="${imageUrl}"></label><br>
         <label>
           Upload Image:
           <input type="file" class="imageFile" accept="image/*">
         </label>
         <div class="drop-zone">Drag & Drop Image Here</div>
-        <img class="image-preview" src="${banner.image}" alt="Preview">
+        <img class="image-preview" src="${imageUrl}" alt="Preview">
+        <label class="filename-label"></label>
         <label>Title: <input type="text" class="title" value="${banner.title}"></label><br>
         <label>Subtitle: <input type="text" class="subtitle" value="${banner.subtitle}"></label><br>
         <label>Link: <input type="text" class="link" value="${banner.link}"></label><br>
