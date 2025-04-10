@@ -10,7 +10,7 @@ function sanitize(str) {
 
 document.addEventListener("DOMContentLoaded", function () {
     // Load banners directly from JSON file
-    fetch("/banners.json")
+    fetch("./banners.json")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Failed to fetch banners.json");
