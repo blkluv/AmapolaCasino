@@ -1,17 +1,204 @@
+.ftco-navbar-light .navbar-nav>.nav-item .nav-link.active,
+.ftco-navbar-light .navbar-toggler:hover,
+.ftco-navbar-light .navbar-toggler:focus,
+.ftco-navbar-light.scrolled .nav-item.active>a,
+.ftco-navbar-light.scrolled .nav-link.active,
+.owl-carousel.home-slider .slider-item .slider-text .subheading,
+.owl-carousel.home-slider .slider-item .slider-text h1 span,
+.owl-carousel.home-slider .owl-nav .owl-prev:hover span:before,
+.owl-carousel.home-slider .owl-nav .owl-prev:focus span:before,
+.owl-carousel.home-slider .owl-nav .owl-next:hover span:before,
+.owl-carousel.home-slider .owl-nav .owl-next:focus span:before,
+.slider-text .breadcrumbs span a:hover,
+.slider-text .breadcrumbs span a:focus,
+.slider-text .breadcrumbs span a:hover i,
+.slider-text .breadcrumbs span a:focus i,
+.ftco-about .counter-wrap .text p span.number,
+.resume-wrap .date,
+.services-1 .icon i,
+.services-1 .desc span,
+.ftco-hireme h2 span,
+.footer-small-nav>li a:hover,
+.footer-small-nav>li a:focus,
+.media .ftco-icon span,
+.ftco-counter .text strong.number,
+.ftco-counter .ftco-number,
+.blog-entry .text .heading a:hover,
+.blog-entry .text .heading a:focus,
+.blog-entry .text .heading a:active,
+.blog-entry .meta span,
+.blog-entry .meta a,
+.blog-entry .meta a:hover,
+.contact-section .box .icon span,
+.block-21 .text .heading a:hover,
+.block-21 .text .heading a:active,
+.block-21 .text .heading a:focus,
+.comment-list li .comment-body .meta,
+.categories li a:hover,
+.categories li a:focus,
+.sidelink li a:hover,
+.sidelink li a:focus {
+    color: #e71560 !important;
+}
+
+@media (max-width: 991.98px) {
+    .ftco-navbar-light .navbar-nav>.nav-item.active>a {
+        color: #e71560 !important;
+    }
+
+    .ftco-navbar-light .navbar-toggler {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+}
+
+.ftco-navbar-light .navbar-nav>.nav-item.cta>a,
+.ftco-navbar-light .navbar-nav>.nav-item.cta>a:hover,
+.ftco-navbar-light.scrolled .nav-item.cta>a,
+.services-1:hover,
+.progress-bar,
+.progress-bar:after,
+.ftco-hireme,
+.project .overlay,
+.btn.btn-primary,
+.btn.btn-primary:hover,
+.btn.btn-primary.btn-outline-primary:hover,
+.btn.btn-white.btn-outline-white:hover,
+.bg-primary,
+.bg-primary {
+    background-color: #e71560 !important;
+}
+
+.ftco-navbar-light .navbar-nav>.nav-item.cta>a,
+.ftco-navbar-light .navbar-nav>.nav-item.cta>a:hover,
+.owl-carousel.home-slider .slider-item .slider-text .btn-custom,
+.btn.btn-primary {
+    border: 1px solid #e71560 !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #333 !important;
+}
+
+.btn.btn-primary.btn-outline-primary {
+    border: 2px solid #e71560 !important;
+    color: #e71560 !important;
+}
+
+.btn.btn-primary.btn-outline-primary:hover {
+    border: 2px solid transparent !important;
+}
+
+.ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
+    border-color: #e71560;
+}
+
+.ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
+    padding-left: 0;
+    padding-right: 25px;
+}
+
+.ftco-navbar-light .navbar-nav>.nav-item>.nav-link span:before {
+    background: #e71560;
+}
+
+.services-1 .desc h3:after {
+    background: #e71560;
+}
+
+.ftco-footer {
+    padding: 4em 0;
+}
+
+/* banner styles */
+
+.banner-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-color: rgb(14, 3, 18);
+    margin-top: 140px;
+}
+
+.banner {
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: right;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.banner-content {
+    padding: 20px 200px;
+    text-shadow: 0 0 20px #000;
+}
+
+.banner-content h2 {
+    font-size: 2.5em;
+    color: #e71560;
+    font-weight: 500;
+}
+
+.banner-content p {
+    font-size: 2em;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #e71560 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #e71560 !important;
+}
+
+@media (max-width: 992px) {
+    .banner-container {
+        height: 420px;
+        margin: 0
+    }
+
+    .banner-content h2,
+    .banner-content p {
+        line-height: 1.25em;
+    }
+
+    .banner {
+        height: 420px;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+
+/** additional styles **/
+
 #loginBox {
     max-width: 375px;
 }
+
 #loginBox input {
     width: 120px;
     margin-right: 10px;
     padding: 2px 10px;
 }
-#services-section, #contact-section {
+
+#services-section,
+#contact-section {
     background-color: #1c040c;
 }
-#about-section, #projects-section {
+
+#about-section,
+#projects-section {
     background-color: #111;
 }
+
 
 @media (max-width: 992px) {
     #loginBox {
@@ -20,7 +207,7 @@
         left: 0;
         display: flex;
         flex-direction: row;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
         gap: 10px;
         max-width: none;
@@ -28,15 +215,19 @@
         padding: 10px;
         background-color: #222;
     }
-    #loginBox input{
+
+    #loginBox input {
         min-width: 120px;
     }
+
     #LogInAccount {
         min-width: 90px;
     }
+
     .navbar {
         padding-top: 50px;
     }
+
     .ftco-navbar-light.scrolled.awake {
         padding-top: 40px;
     }
