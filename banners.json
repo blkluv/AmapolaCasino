@@ -15,7 +15,7 @@
             "button_text": "Join Now"
         },
         {
-            "image": images/banners/banner3_bg.jpg",
+            "image": "images/banners/banner3_bg.jpg",
             "title": "Amapola Casino",
             "subtitle": "Get 50% Reload Bonus",
             "link": "#",
