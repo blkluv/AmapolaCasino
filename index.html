@@ -2,351 +2,361 @@
 <html lang="en">
 
 <head>
-  <title>Amapola Casino</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Amapola Casino</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-  <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
 
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
-  <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/aos.css">
 
-  <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
 
-  <link rel="stylesheet" href="css/flaticon.css">
-  <link rel="stylesheet" href="css/icomoon.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/custom-styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><img src=images/logo.png border="0" width="175"></a>
-      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-        data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" border="0" width="175"></a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav nav ml-auto">
-          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About Us</span></a></li>
-          <li class="nav-item"><a href="#services-section" class="nav-link"><span>Entertainment</span></a></li>
-          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Join Now</span></a></li>
-        </ul>
-      </div>
-      <form name="client login" id="loginBox">
-        <input type="text" id="account" name="customerID" placeholder="Username">
-        <input type="password" id="password" placeholder="Password" name="Password">
-        <button id="LogInAccount" type="Submit" class="btn btn-primary">
-          Log In
-        </button>
-      </form>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="#home-section" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a href="#about-section" class="nav-link" data-i18n="nav.about">About Us</a>
+                    </li>
+                    <li class="nav-item"><a href="#services-section" class="nav-link"
+                            data-i18n="nav.entertainment">Entertainment</a></li>
+                    <li class="nav-item"><a href="#contact-section" class="nav-link" data-i18n="nav.join">Join Now</a>
+                    </li>
+                </ul>
+            </div>
+            <form name="client login" id="loginBox">
+                <input type="text" id="account" name="customerID" placeholder="Username"
+                    data-i18n-placeholder="form.username">
+                <input type="password" id="password" placeholder="Password" name="Password"
+                    data-i18n-placeholder="form.password">
+                <button id="LogInAccount" type="Submit" class="btn btn-primary" data-i18n="form.login">Log In</button>
+            </form>
+            <select id="languageSwitcher" class="ml-3" style="color: #fff; background-color: #222; border: 1px solid #333; font-size: 14px;">
+                <option value="en" selected>EN</option>
+                <option value="es">ES</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="banner-container" id="home-section">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="bannerWrapper"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
-  </nav>
-  <div class="banner-container" id="home-section">
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper" id="bannerWrapper"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-6 col-lg-5 d-flex">
+                    <div class="img-about img d-flex align-items-stretch">
+                        <div class="overlay"></div>
+                        <div class="img d-flex align-self-stretch align-items-center"
+                            style="background-image:url(images/img-3.png);"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h1 class="big" data-i18n="about.brand">Amapola</h1>
+                            <h2 class="mb-4" data-i18n="about.title">Amapola Casino</h2>
+                            <p data-i18n="about.description"></p>
+                            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=ampola%20resort&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        </div>
+                    </div>
+                    <div class="counter-wrap ftco-animate d-flex mt-md-3">
+                        <div class="text">
+                            <p class="mb-4">
+                                <span class="number" data-number="25">0</span>
+                                <span data-i18n="about.years">Years of Service</span>
+                            </p>
+                            <p><a href="#" class="btn btn-primary py-3 px-3" data-i18n="btn.join">Join Now</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section" id="services-section">
+        <div class="container">
+            <div class="row justify-content-center py-5 mt-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h1 class="big big-2" data-i18n="services.big">Entertainment</h1>
+                    <h2 class="mb-4" data-i18n="services.title">Entertainment Variety</h2>
+                    <p data-i18n="services.description">Great odds, instant payouts and the most recognized poker room
+                        on the Pacific coast of Costa Rica.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center d-flex ftco-animate">
+                    <a href="#" class="services-1">
+                        <img src="images/icon-poker.png" style="width: 33%; margin-bottom: 20px;">
+                        <div class="desc">
+                            <h3 class="mb-5" data-i18n="services.poker">Poker Room</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center d-flex ftco-animate">
+                    <a href="#" class="services-1">
+                        <img src="images/icon-casino.png" style="width: 33%; margin-bottom: 20px;">
+                        <div class="desc">
+                            <h3 class="mb-5" data-i18n="services.casino">Casino</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center d-flex ftco-animate">
+                    <a href="#" class="services-1">
+                        <img src="images/icon-sportsbook.png" style="width: 33%; margin-bottom: 20px;">
+                        <div class="desc">
+                            <h3 class="mb-5" data-i18n="services.sportsbook">Sportsbook</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-project" id="projects-section">
+        <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h1 class="big big-2" data-i18n="projects.big">Slot Machines</h1>
+                    <h2 class="mb-4" data-i18n="projects.title">+30 Slot Machines</h2>
+                    <p data-i18n="projects.tagline">STAY, PLAY AND WIN!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="project img ftco-animate d-flex justify-content-center align-items-center"
+                        style="background-image: url(images/img-2.png);">
+                        <div class="overlay"></div>
+                        <div class="text text-center p-4">
+                            <h3><a href="#" data-i18n="projects.cta">STAY, PLAY AND WIN</a></h3>
+                            <span data-i18n="projects.label">Slot Machines</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="project img ftco-animate d-flex justify-content-center align-items-center"
+                        style="background-image: url(images/img-3.png);">
+                        <div class="overlay"></div>
+                        <div class="text text-center p-4">
+                            <h3><a href="#" data-i18n="projects.cta">STAY, PLAY AND WIN</a></h3>
+                            <span data-i18n="projects.label">Slot Machines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7 ftco-animate text-center">
+                    <h2 data-i18n="sportsbook.title">Online Sportsbook</h2>
+                    <p data-i18n="sportsbook.description">Join Amapola Casino Online Sportsbook and enjoy the action
+                        today!</p>
+                    <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5" data-i18n="btn.join">Join Now!</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h1 class="big big-2" data-i18n="contact.big">Join</h1>
+                    <h2 class="mb-4" data-i18n="contact.title">Join Now</h2>
+                    <p data-i18n="contact.description">Sign up today and start enjoying the thrill of the Online Sports
+                        betting action!</p>
+                </div>
+            </div>
+
+            <div class="row d-flex contact-info mb-5">
+                <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                    <div class="align-self-stretch box p-4 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-map-signs"></span>
+                        </div>
+                        <h3 class="mb-4" data-i18n="contact.addressLabel">Address</h3>
+                        <p data-i18n="contact.address">Jaco beach, Av. Amapola, Provincia de Puntarenas, Jacó</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                    <div class="align-self-stretch box p-4 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-phone2"></span>
+                        </div>
+                        <h3 class="mb-4" data-i18n="contact.phoneLabel">Contact Number</h3>
+                        <p><a href="tel://1234567920" data-i18n="contact.phone">+1 800 281 7017 </a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+                    <div class="align-self-stretch box p-4 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-paper-plane"></span>
+                        </div>
+                        <h3 class="mb-4" data-i18n="contact.emailLabel">Email Address</h3>
+                        <p><a href="mailto:info@yoursite.com" data-i18n="contact.email">cs@amapolacasino.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row no-gutters block-9">
+                <div class="col-md-6 order-md-last d-flex">
+                    <form action="#" class="bg-light p-4 p-md-5 contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name"
+                                data-i18n-placeholder="form.name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Phone"
+                                data-i18n-placeholder="form.phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email"
+                                data-i18n-placeholder="form.email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password"
+                                data-i18n-placeholder="form.password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Confirm Password"
+                                data-i18n-placeholder="form.confirmPassword">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Address"
+                                data-i18n-placeholder="form.address">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create Account" class="btn btn-primary py-3 px-5"
+                                data-i18n-value="form.submit">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-6 d-flex">
+                    <div class="img" style="background-image: url(images/slots-1.jpg);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2" data-i18n="footer.brand">Amapola Casino</h2>
+                        <p data-i18n="footer.description">Great odds, instant payouts and the most recognized poker room
+                            on the Pacific coast of Costa Rica.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="https://x.com/AmapolaCasino"><span
+                                        class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/AmapolaSportsbookCasino/"><span
+                                        class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/amapola_sportsbook/"><span
+                                        class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2" data-i18n="footer.links">Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span><span
+                                        data-i18n="nav.home">Home</span></a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span><span
+                                        data-i18n="nav.about">About Us</span></a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span><span
+                                        data-i18n="nav.entertainment">Entertainment</span></a></li>
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span><span
+                                        data-i18n="nav.join">Join Now</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2" data-i18n="footer.contact">Have Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text"
+                                            data-i18n="footer.phone">+1 800 281 7017 | +1 800 520 1812</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text"
+                                            data-i18n="footer.email">cs@amapolacasino.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; <span data-i18n="footer.copyright">Amapola Casino</span>
+                        <script>document.write(new Date().getFullYear());</script>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+        </svg>
     </div>
-  </div>
-
-  <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    <div class="container">
-      <div class="row d-flex">
-        <div class="col-md-6 col-lg-5 d-flex">
-          <div class="img-about img d-flex align-items-stretch">
-            <div class="overlay"></div>
-            <div class="img d-flex align-self-stretch align-items-center"
-              style="background-image:url(images/img-3.png);">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-          <div class="row justify-content-start pb-3">
-            <div class="col-md-12 heading-section ftco-animate">
-              <h1 class="big">Amapola</h1>
-              <h2 class="mb-4">Amapola Casino</h2>
-              <p>AmapolaCasino.com está respaldado por el hotel Amapola Resort & Casino, local de larga trayectoria
-                establecido hace más de 25 años en la popular ciudad costera de Jacó, Costa Rica. Nuestro equipo de
-                gestión de apuestas deportivas tiene más de 47 años de experiencia combinada. Nuestro personal del
-                hotel, restaurante y casino está dedicado a hacer de su estadía en vacaciones un recuerdo inolvidable.
-              </p>
-              <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=ampola%20resort&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-            </div>
-          </div>
-          <div class="counter-wrap ftco-animate d-flex mt-md-3">
-            <div class="text">
-              <p class="mb-4">
-                <span class="number" data-number="25">0</span>
-                <span>Años de Servicio</span>
-              </p>
-              <p><a href="#" class="btn btn-primary py-3 px-3">Join Now</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ftco-section" id="services-section">
-    <div class="container">
-      <div class="row justify-content-center py-5 mt-5">
-        <div class="col-md-12 heading-section text-center ftco-animate">
-          <h1 class="big big-2">Entretenimiento</h1>
-          <h2 class="mb-4">Variedad de Entretenimiento</h2>
-          <p>Grandes probabilidades, pagos inmediatos y sala de poker mas reconocida del pacifico de Costa Rica. </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 text-center d-flex ftco-animate">
-          <a href="#" class="services-1">
-            <img src="images/icon-poker.png" style="width: 33%; margin-bottom: 20px;">
-            <div class="desc">
-              <h3 class="mb-5">Sala de Poker</h3>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center d-flex ftco-animate">
-          <a href="#" class="services-1">
-            <img src="images/icon-casino.png" style="width: 33%; margin-bottom: 20px;">
-            <div class="desc">
-              <h3 class="mb-5">Casino</h3>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center d-flex ftco-animate">
-          <a href="#" class="services-1">
-            <img src="images/icon-sportsbook.png" style="width: 33%; margin-bottom: 20px;">
-            <div class="desc">
-              <h3 class="mb-5">Sportsbook</h3>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <section class="ftco-section ftco-project" id="projects-section">
-    <div class="container">
-      <div class="row justify-content-center pb-5">
-        <div class="col-md-12 heading-section text-center ftco-animate">
-          <h1 class="big big-2">Slot Machines</h1>
-          <h2 class="mb-4">+30 Máquinas de Monedas</h2>
-          <p>¡QUEDATE JUEGA Y GANA!</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-            style="background-image: url(images/img-2.png);">
-            <div class="overlay"></div>
-            <div class="text text-center p-4">
-              <h3><a href="#">QUEDATE JUEGA Y GANA</a></h3>
-              <span>Slot Machines</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-            style="background-image: url(images/img-3.png);">
-            <div class="overlay"></div>
-            <div class="text text-center p-4">
-              <h3><a href="#">QUEDATE JUEGA Y GANA</a></h3>
-              <span>Slot Machines</span>
-            </div>
-          </div>
-        </div>
+    <script src="js/main.js"></script>
+    <script src="js/banners-script.js"></script>
+    <script src="js/translations-script.js"></script>
 
-
-      </div>
-    </div>
-  </section>
-
-
-  <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-7 ftco-animate text-center">
-          <h2>Online Sportsbook</h2>
-          <p>Join Amapola Casino Online Sportsbook and enjoy the action today!</p>
-          <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Join Now!</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-    <div class="container">
-      <div class="row justify-content-center mb-5 pb-3">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <h1 class="big big-2">Join</h1>
-          <h2 class="mb-4">Join Now</h2>
-          <p>Sign up today and start enjoying the thrill of the Online Sports betting action!</p>
-        </div>
-      </div>
-
-      <div class="row d-flex contact-info mb-5">
-        <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="icon-map-signs"></span>
-            </div>
-            <h3 class="mb-4">Address</h3>
-            <p>Jaco beach, Av. Amapola, Provincia de Puntarenas, Jacó</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="icon-phone2"></span>
-            </div>
-            <h3 class="mb-4">Contact Number</h3>
-            <p><a href="tel://1234567920">+1 800 281 7017 </a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center">
-              <span class="icon-paper-plane"></span>
-            </div>
-            <h3 class="mb-4">Email Address</h3>
-            <p><a href="mailto:info@yoursite.com">cs@amapolacasino.com</a></p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row no-gutters block-9">
-        <div class="col-md-6 order-md-last d-flex">
-          <form action="#" class="bg-light p-4 p-md-5 contact-form">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Phone">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" placeholder="Confirm Password">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Address">
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Create Account" class="btn btn-primary py-3 px-5">
-            </div>
-          </form>
-
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <div class="img" style="background-image: url(images/slots-1.jpg);"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <footer class="ftco-footer ftco-section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md">
-          <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Amapola Casino</h2>
-            <p>Grandes probabilidades, pagos inmediatos y sala de poker mas reconocida del pacifico de Costa Rica. </p>
-            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-              <li class="ftco-animate"><a href="https://x.com/AmapolaCasino"><span class="icon-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="https://www.facebook.com/AmapolaSportsbookCasino/"><span class="icon-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="https://www.instagram.com/amapola_sportsbook/"><span class="icon-instagram"></span></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="ftco-footer-widget mb-4 ml-md-4">
-            <h2 class="ftco-heading-2">Links</h2>
-            <ul class="list-unstyled">
-              <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
-              <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About Us</a></li>
-              <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Entretenimiento</a></li>
-              <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Join Now</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md">
-          <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Have Questions?</h2>
-            <div class="block-23 mb-3">
-              <ul>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+1 800 281 7017 | +1 800 520
-                      1812</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span
-                      class="text">cs@amapolacasino.com</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-center">
-
-          <p>Copyright &copy; Amapola Casino
-            <script>document.write(new Date().getFullYear());</script>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#F96D00" />
-    </svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <!-- <script src="js/aos.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.js"></script>
-
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-
-  <script src="js/main.js"></script>
-  <script src="js/banners-script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 

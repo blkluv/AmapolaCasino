@@ -1,0 +1,25 @@
+{
+    "banners": [
+        {
+            "image": "images/banners/banner1_bg.jpg",
+            "title": "Apuesta En Línea",
+            "subtitle": "Bet Now!",
+            "link": "#",
+            "button_text": "Join Now"
+        },
+        {
+            "image": "images/banners/banner2_bg.jpg",
+            "title": "Amapola Casino Sportsbook",
+            "subtitle": "Get 100% Bonus On First Deposit",
+            "link": "#",
+            "button_text": "Join Now"
+        },
+        {
+            "image": "images/banners/banner3_bg.jpg",
+            "title": "Amapola Casino",
+            "subtitle": "Get 50% Reload Bonus",
+            "link": "#",
+            "button_text": "Join Now"
+        }
+    ]
+}
