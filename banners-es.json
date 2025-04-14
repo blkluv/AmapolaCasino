@@ -5,21 +5,21 @@
             "title": "Apuesta En Línea",
             "subtitle": "Bet Now!",
             "link": "#",
-            "button_text": "Join Now"
+            "button_text": "Registrate"
         },
         {
             "image": "images/banners/banner2_bg.jpg",
-            "title": "Amapola Casino Sportsbook",
-            "subtitle": "Get 100% Bonus On First Deposit",
+            "title": "Amapola Casino",
+            "subtitle": "100% Bonificación en deposito inicial",
             "link": "#",
-            "button_text": "Join Now"
+            "button_text": "Registrate"
         },
         {
             "image": "images/banners/banner3_bg.jpg",
             "title": "Amapola Casino",
-            "subtitle": "Get 50% Reload Bonus",
+            "subtitle": "50% Bonificación de Recargas",
             "link": "#",
-            "button_text": "Join Now"
+            "button_text": "Registrate"
         }
     ]
 }
