@@ -3,22 +3,15 @@
         {
             "image": "images/banners/banner1_bg.jpg",
             "title": "Apuesta En Línea",
-            "subtitle": "Bet Now!",
-            "link": "#",
+            "subtitle": "Bono de 100% de bienvenida",
+            "link": "#sign-up",
             "button_text": "Registrate"
         },
         {
             "image": "images/banners/banner2_bg.jpg",
             "title": "Amapola Casino",
-            "subtitle": "100% Bonificación en deposito inicial",
-            "link": "#",
-            "button_text": "Registrate"
-        },
-        {
-            "image": "images/banners/banner3_bg.jpg",
-            "title": "Amapola Casino",
-            "subtitle": "50% Bonificación de Recargas",
-            "link": "#",
+            "subtitle": "Bono de recarga de 50%",
+            "link": "#sign-up",
             "button_text": "Registrate"
         }
     ]
